@@ -1,0 +1,34 @@
+{
+  "name": "lvbu",
+  "version": "1.0.0",
+  "description": "",
+  "main": "02express.js",
+  " ": {
+    "silly-datetime": "^0.1.2"
+  },
+  "devDependencies": {
+    "body-parser": "^1.17.2",
+    "ejs": "^2.5.7",
+    "express": "^4.15.4",
+    "jade": "^1.11.0"
+  },
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/mylxx/Node-test.git"
+  },
+  "keywords": [
+    "nodejs"
+  ],
+  "author": "mylxx",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/mylxx/Node-test/issues"
+  },
+  "homepage": "https://github.com/mylxx/Node-test#readme",
+  "dependencies": {
+    "formidable": "^1.1.1"
+  }
+}

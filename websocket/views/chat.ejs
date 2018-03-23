@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>聊天室</title>
+	<style>
+		*{
+			margin:0;
+			padding:0;
+
+		}
+		.box{
+			width:800px;
+			margin:0 auto;
+			position: relative;
+			border:1px solid #ccc;
+			height:100vh;
+		}
+		.caozuo{
+			width:100%;
+			position: absolute;
+			bottom:30px;
+			left:0px;
+			line-height: 50px;
+		}
+		.caozuo input[type=text]{
+			width:60%;
+			float:left;
+			height:50px;
+		}
+		#send{
+			width:30%;
+			float:left;
+			height:50px;
+			line-height:50px;
+		}
+
+	</style>
+</head>
+<body>
+<div class="box">
+	
+<h1>聊天室  欢迎<span id="yonghu"><%=name%></span></h1>
+
+<div>
+	<ul class="list">
+		
+	</ul>
+</div>
+<div class="caozuo">
+	<input type="text" id="neirong">
+	<!-- <button id="send">发言</button> -->
+</div>
+</div>
+    <script src="/socket.io/socket.io.js"></script>
+    <script src="./jq.js"></script>
+<script>
+	var socket = io();
+	$('#neirong').keydown(function(e){
+		if(e.keyCode == 13){
+			socket.emit('liaotian',{
+			'neirong':$('#neirong').val(),
+			'ren': $('#yonghu').html()
+			})
+		    $(this).val('')
+		}
+	})
+	socket.on('liaotian',function(msg){
+		$('.list').prepend('<li><b>'+msg.ren+'说：<b>'+msg.neirong+'</li>')
+	})
+</script>
+
+	
+</body>
+</html>

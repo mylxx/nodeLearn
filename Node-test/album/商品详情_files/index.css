@@ -1,0 +1,345 @@
+* {
+    /*font-family: Candara, Calibri, Segoe, Segoe UI, Optima, Arial, sans-serif;*/
+    padding: 0;
+    margin: 0;
+    font-size:0.682667rem;
+    font-family: 'PingFangSC-Regular';
+
+}
+
+.swiper-container {
+    width: 100%;
+}
+
+.swiper-container img {
+    width: 100%;
+}
+
+.swiper-slide {
+    /*min-height:4.266667rem; */
+    /*min-height:10.666667rem; */
+    overflow: hidden;
+}
+
+.home_main {
+    width: 100%;
+    box-sizing: border-box;
+    padding-left: 0.426667rem;
+    padding-right: 0.426667rem;
+    padding-bottom: 2.090667rem;
+}
+
+.home_subtitle {
+    height: 1rem;
+    line-height: 1rem;
+}
+
+.home_subtitle span {
+    font-size: 0.469333rem;
+    display: inline-block;
+    height: 0.938667rem;
+    line-height: 0.938667rem;
+    color: #666;
+}
+
+.home_subtitle img {
+    height: 0.469333rem;
+    /*vertical-align: middle;*/
+}
+
+.home_title {
+    /*font-size: 0.682667rem;*/
+    color: #171717;
+    line-height: 0.938667rem;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    display: -webkit-box;
+    -webkit-line-clamp: 2;
+    -webkit-box-orient: vertical;
+}
+
+.home_price {
+    font-size: 1.066667rem;
+    color: #F3244B;
+    margin-top: 0.256rem;
+}
+
+.home_trade {
+    font-size: 0.341333rem;
+    color: #999999;
+}
+.home_trade span{
+    font-size: 0.341333rem;
+
+}
+
+.home_recommend {
+    margin: 0.426667rem -0.426667rem;
+    padding: 0.426667rem;
+    width: 100%;
+    background: #FFF7F8;
+    /*font-size: 0.597333rem;*/
+    color: #706F6F;
+    line-height: 0.853333rem;
+    border-top: 1px solid #e7e7e7;
+    border-bottom: 0.64rem solid #eee;
+}
+
+.home_proInfo {
+    /*font-size: 0.597333rem;*/
+    color: #999999;
+    line-height: 1.493333rem;
+    height: 1.493333rem;
+}
+
+.home_proInfo span {
+    color: #353535;
+    display: inline-block;
+    margin-left: 0.853333rem;
+}
+.home_proInfo_style,.home_proInfo_size{
+    line-height: 1.493333rem;
+}
+.home_proInfo_size,.home_proInfo_style{
+     /*font-size: 0.597333rem;*/
+    
+    overflow:hidden;
+}
+.home_proInfo_size .left,.home_proInfo_style .left{
+    color: #999999;
+    float:left;
+    width:10%;
+}.home_proInfo_size .right,.home_proInfo_style .right{
+    float:left;
+    width:90%;
+}
+.home_proInfo_size .right span,.home_proInfo_style .right span{
+    color: #353535;
+    display: inline-block;
+    margin-left: 0.853333rem;
+
+}
+
+.empty {
+    height: 0.64rem;
+    background: #eee;
+    margin-left: -0.426667rem;
+    margin-right: -0.426667rem;
+}
+
+.home_footer {
+    position: fixed;
+    left: 0;
+    bottom: 0;
+    width: 100%;
+    overflow: hidden;
+}
+
+.home_footer .left {
+    width: 33.3%;
+    float: left;
+    height: 2.090667rem;
+    line-height: 2.090667rem;
+    text-align: center;
+    /*font-size: 0.65rem;*/
+    border-top: 1px solid #ccc;
+    background: #fff;
+}
+
+.home_footer .left img {
+    margin-top: 0.298667rem;
+    height: 0.65rem;
+}
+
+.home_footer .right {
+    width: 66.7%;
+    float: left;
+    height: 2.090667rem;
+    line-height: 2.090667rem;
+    text-align: center;
+    /*font-size: 0.65rem;*/
+}
+
+.sell {
+    color: #fff;
+    background: #F3244B;
+}
+
+.sellout {
+    color: #fff;
+    background: #D8D8D8;
+}
+
+
+/*detail详情*/
+
+#detailWrap {
+    position: fixed;
+    top: 0;
+    left: 0;
+    bottom: 0;
+    right: 0;
+    background: rgba(0, 0, 0, 0.3);
+    z-index: 666;
+    display: none;
+}
+
+#detail {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    box-sizing: border-box;
+    padding: 0.426667rem;
+    background: #fff;
+    z-index: 999;
+}
+
+.detail_top {
+    overflow: hidden;
+}
+
+.detail_top_left {
+    float: left;
+    width: 4.693333rem;
+    height: 4.693333rem;
+    margin-right: 0.32rem;
+    overflow: hidden;
+}
+
+.detail_top_left img {
+    width: 100%;
+}
+
+.detail_top_rigth {
+    float: left;
+    height: 4.693333rem;
+    margin-right: 0.426667rem;
+}
+
+.detail_top_right .detail_title {
+    /*font-size: 0.682667rem;*/
+    color: #171717;
+    /*line-height: 0.938667rem;*/
+    overflow: hidden;
+    text-overflow: ellipsis;
+    display: -webkit-box;
+    -webkit-line-clamp: 2;
+    -webkit-box-orient: vertical;
+}
+
+.detail_price {
+    /*font-size: 1.109333rem;*/
+    color: #F3244B;
+}
+
+.detail_kucun {
+    /*font-size: 0.512rem;*/
+    color: #999999;
+}
+
+.detail_empty {
+    border: 1px solid #F2F2F2;
+    margin: 0.426667rem -0.426667rem;
+}
+
+.detail_style ul,
+.detail_size ul {
+    overflow: hidden;
+    padding-top: 0.426667rem;
+}
+
+.detail_style ul li,
+.detail_size ul li {
+    float: left;
+    list-style: none;
+    padding: 0.32rem;
+    height: 1rem;
+    line-height: 1rem;
+    text-align: center;
+    background: #FFF7F8;
+    /*font-size: 0.554667rem;*/
+    color: #353535;
+    margin-right: 0.64rem;
+    margin-bottom: 0.533333rem;
+    border-radius: 0.213333rem;
+}
+
+.detail_style ul li.detail_check,
+.detail_size ul li.detail_check {
+    background: #F3244B;
+    color:#fff;
+}
+
+.detail_style ul li.detail_disabled,
+.detail_size ul li.detail_disabled {
+    background: #f7f7f7;
+}
+
+.detail_buy {
+    overflow: hidden;
+    padding-top: 0.533333rem;
+    padding-bottom: 0.533333rem;
+}
+
+.detail_buy_left {
+    /*font-size: 0.682667rem;*/
+    color: #353535;
+    margin-right: 0.426667rem;
+    float: left;
+}
+
+.detail_buy_middle {
+    /*font-size: 0.512rem;*/
+    color: #999999;
+    float: left;
+    height: 0.96rem;
+    line-height: 0.96rem;
+}
+
+.detail_buy_right {
+    float: right;
+    height: 0.96rem;
+    line-height: 0.96rem;
+    box-sizing: border-box;
+    border: 1px solid #E3E3E3;
+    width: 25%;
+    overflow: hidden;
+}
+
+.detail_buy_right .add {
+    background: #F2F2F2;
+    text-align: center;
+    width: 33.33%;
+    float: right;
+}
+
+.detail_buy_right .quantity {
+    float: left;
+    text-align: center;
+    width: 33.33%;
+    box-sizing: border-box;
+    border-left: 1px solid #e3e3e3;
+    border-right: 1px solid #e3e3e3;
+}
+
+.detail_buy_right .subtract {
+    background: #F2F2F2;
+    text-align: center;
+    width: 33.33%;
+    float: left;
+}
+
+#detail_footer {
+    position: fixed;
+    left: 0;
+    bottom: 0;
+    width: 100%;
+    height: 2.090667rem;
+    line-height: 2.090667rem;
+    text-align: center;
+    /*font-size: 0.65rem;*/
+    color: #fff;
+    background: #F3244B;
+    z-index: 9999;
+}

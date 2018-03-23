@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Document</title>
+    <style>
+    
+    .inn {
+        height: 0;
+        overflow: hidden;
+        position: fixed;
+        right: 0;
+        bottom:60px;
+        background:#ccc;
+        border:1px solid #999;
+        transition:all 0.5s;
+    }
+
+    .out {
+        width: 50px;
+        height: 60px;
+        position: fixed;
+        right: 0;
+        bottom: 0;
+        background:#ccc;
+        z-index: 99;
+    }
+
+    
+
+
+    </style>
+</head>
+
+<body>
+    </div>
+    <div class="out"></div>
+    <div class="inn">
+        <li>1</li>
+        <li>1</li>
+        <li>1</li>
+        <li>1</li>
+        <li>1</li>
+    </div>
+    <script>
+    var out = document.getElementsByClassName("out")[0]
+    var inn = document.getElementsByClassName("inn")[0]
+    out.onmouseover = function() {
+        inn.style.height = '300px'
+    }
+    </script>
+</body>
+
+</html>

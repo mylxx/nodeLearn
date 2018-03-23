@@ -1,0 +1,31 @@
+{
+  "name": "nodejsday05",
+  "version": "1.0.0",
+  "description": "01 每次访问 / 数据库中新增一条记录    assert.equal(null,err); 调试 比较null 和err 相当于 if err return;",
+  "main": "01.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/mylxx/Node-test.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/mylxx/Node-test/issues"
+  },
+  "homepage": "https://github.com/mylxx/Node-test#readme",
+  "devDependencies": {
+    "crypto": "^1.0.1",
+    "ejs": "^2.5.7",
+    "express": "^4.15.4",
+    "express-session": "^1.15.5",
+    "formidable": "^1.1.1",
+    "gm": "^1.23.0"
+  },
+  "dependencies": {
+    "cookie-parser": "^1.4.3",
+    "mongodb": "^2.2.31"
+  }
+}

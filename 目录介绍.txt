@@ -1,0 +1,13 @@
+Node-test      nodes 基础学习；
+
+littleAlbum    nodejs 应用 相册案例；
+
+nodejsday05    nodejs mongodb基础学习；
+
+shuoshuo       nodejs mongoodb 应用 说说发帖案例；集合 user userPost
+
+booksystem     mongoose 简单 案例 
+
+day08          mongoose 案例 学生课程；  没有看完，，
+
+websocket       nodejs websocket 以及 Socket.IO库的使用；

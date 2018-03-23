@@ -1,0 +1,173 @@
+<!DOCTYPE html>
+<!-- saved from url=(0060)http://localhost:8008/addr.html?need_identity=1&from_order=1 -->
+<html lang="en" data-dpr="1" style="font-size: 22.5px;"><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    
+    <title>收货地址</title>
+    <link rel="stylesheet" href="./收货地址_files/addr.css">
+    <script src="./收货地址_files/flexible.js"></script><meta name="viewport" content="initial-scale=1, maximum-scale=1, minimum-scale=1, user-scalable=no">
+    <script src="./收货地址_files/vue.js"></script>
+    <script type="text/javascript" src="./收货地址_files/zepto_adj.min.js"></script>
+<style>
+</style></head>
+
+
+<body style="font-size: 12px;">
+    <div id="goods_addr"><div class="user_name"><div class="user_name_left">收件人</div> <div class="user_name_right"><input type="text" placeholder="请填写姓名"></div></div> <div class="user_mobile"><div class="user_mobile_left">联系电话</div> <div class="user_mobile_middle"><input type="number" placeholder="请填写手机号"></div> <div class="user_mobile_right"></div></div> <div class="user_area"><div class="user_area_left">地区</div> <div class="user_area_middle"><select class="pro" style="
+    width: 73px;
+"><option value="[object Object]">北京市</option><option value="[object Object]">天津市</option><option value="[object Object]">河北省</option><option value="[object Object]">山西省</option><option value="[object Object]">内蒙古自治区</option><option value="[object Object]">辽宁省</option><option value="[object Object]">吉林省</option><option value="[object Object]">黑龙江省</option><option value="[object Object]">上海市</option><option value="[object Object]">江苏省</option><option value="[object Object]">浙江省</option><option value="[object Object]">安徽省</option><option value="[object Object]">福建省</option><option value="[object Object]">江西省</option><option value="[object Object]">山东省</option><option value="[object Object]">河南省</option><option value="[object Object]">湖北省</option><option value="[object Object]">湖南省</option><option value="[object Object]">广东省</option><option value="[object Object]">广西壮族自治区</option><option value="[object Object]">海南省</option><option value="[object Object]">重庆市</option><option value="[object Object]">四川省</option><option value="[object Object]">贵州省</option><option value="[object Object]">云南省</option><option value="[object Object]">西藏自治区</option><option value="[object Object]">陕西省</option><option value="[object Object]">甘肃省</option><option value="[object Object]">青海省</option><option value="[object Object]">宁夏回族自治区</option><option value="[object Object]">新疆维吾尔自治区</option></select>省
+                <select class="city"><option value="[object Object]">北京市</option><option value="[object Object]">北京县</option></select>市
+                <select class="county"><option value="[object Object]">东城区</option><option value="[object Object]">西城区</option><option value="[object Object]">崇文区</option><option value="[object Object]">宣武区</option><option value="[object Object]">朝阳区</option><option value="[object Object]">丰台区</option><option value="[object Object]">石景山区</option><option value="[object Object]">海淀区</option><option value="[object Object]">门头沟区</option><option value="[object Object]">房山区</option><option value="[object Object]">通州区</option><option value="[object Object]">顺义区</option><option value="[object Object]">昌平区</option><option value="[object Object]">大兴区</option><option value="[object Object]">怀柔区</option><option value="[object Object]">平谷区</option></select>区(县)
+            </div></div> <div class="user_area_detail"><div class="user_area_detail_left">地址</div> <div class="user_area_detail_right"><input type="text" placeholder="请填写详细地址 "></div></div> <div class="goods_addr_addIdentity"><div class="addInfo">添加身份证信息</div> <p>※据海关要求，请填写真实有效的身份证信息以便顺利清关</p></div> <div class="goods_addr_footer">保存</div></div>
+    
+    <script type="text/javascript" src="./收货地址_files/ktop.min.js"></script>
+    <script>
+    var ktop = lib.ktop
+    var kStorage = lib.kStorage
+    var params = function() {
+        var params = location.search.slice(1);
+        params = params.split('&');
+        var result = {};
+        var val;
+        for (var i = 0, len = params.length; i < len; i++) {
+            if (params[i]) {
+                val = params[i].split('=');
+                result[val[0]] = val[1] || '';
+            }
+        }
+        return result;
+    }();
+    
+
+    var goods_addr = new Vue({
+        el: '#goods_addr',
+        data: {
+            addressInfo: {
+
+            },
+            need_identity: 0,
+            from_order: 0,
+            area: {},
+            province: {},
+            city: {},
+            district: {}
+        },
+        watch: {
+            province: function(newValue, oldValue) {
+                this.city = newValue.cities[0]
+                this.addressInfo.province_id = newValue.province_id
+                this.addressInfo.province_name = newValue.province_name
+            },
+            city: function(newValue, oldValue) {
+                this.district = newValue.districts[0]
+                this.addressInfo.city_id = newValue.city_id
+                this.addressInfo.city_name = newValue.city_name
+            },
+            district: function(newValue, oldValue) {
+                this.addressInfo.district_id = newValue.district_id
+                this.addressInfo.district_name = newValue.district_name
+            },
+        },
+        mounted: function() {
+            this.$nextTick(function() {
+                this.need_identity = params.need_identity
+                this.from_order = params.from_order
+                this.getAddress()
+            })
+        },
+        methods: {
+            getAddress: function() {
+                var addressInfo = JSON.parse(kStorage.get('addressInfo'))
+                if (addressInfo) {
+                    this.addressInfo = addressInfo
+                }
+                var area = JSON.parse(kStorage.get('area'))
+                var areaVersion = 0;
+                if (area) {
+                    this.area = area
+                    if (!this.province.province_id) {
+                        this.province = area.areaInfos[0]
+                    }
+                    areaVersion = area.currentVersion
+                }
+                var openid = kStorage.get('wwwwopenidkml')
+                alert(openid)
+                var self = this
+                ktop.request({
+                    api: 'kml.exp.checkAreaInfo',
+                    apiVersion: '1.0.0',
+                    data: {
+                        areaVersion: areaVersion,
+                        openid: openid
+                    },
+                    success: function(res) {
+                        if (res.needUpdate > 0) {
+                            self.area = res
+                            if (!self.province.province_id) {
+                                self.province = res.areaInfos[0]
+                            }
+                            kStorage.set('area', JSON.stringify(res))
+                        }
+                    }
+                })
+
+            },
+            getIndentityInfo: function() {
+                localStorage.setItem('addressInfo',  JSON.stringify(this.addressInfo))
+                location.href = 'addIndentity.html?need_identity=' + this.need_identity
+            },
+            saveAddress: function() {
+                if (this.check()) {
+                    localStorage.setItem('addressInfo', JSON.stringify(this.addressInfo))
+                    if (this.from_order == 1) {
+                        window.history.go(-1);
+                    } else {
+                        window.history.go(-2);
+                    }
+                }
+            },
+            check: function() {
+                var currentExpress = this.addressInfo
+                var errorMsg = ""
+                if (!currentExpress.real_name) {
+                    errorMsg += "请填写收件人姓名 \n"
+                }
+                if (!currentExpress.province_id) {
+                    errorMsg += "请选择省市区 \n "
+                }
+                if (!currentExpress.detail_address) {
+                    errorMsg += "请填写详细地址\n"
+                }
+                if (!currentExpress.mobile) {
+                    errorMsg += "请填写手机号码\n"
+                } else if (!this.isphone(currentExpress.mobile)) {
+                    errorMsg += "手机号码格式不正确\n"
+                }
+                if (this.need_identity > 0) {
+                    if (!currentExpress.id_card || currentExpress.id_card.length == 0) {
+                        errorMsg += "请完善身份证信息\n"
+                    } else if (this.need_identity == 1 && (!currentExpress.negative_card_url || currentExpress.negative_card_url.length == 0)) {
+                        errorMsg += "请上传身份证照片\n"
+                    }
+                }
+                if (errorMsg.length > 0) {
+                    // wx.showModal({
+                    //     title: '提示',
+                    //     content: errorMsg,
+                    //     showCancel: false
+                    // })
+                    alert(errorMsg)
+                    return false;
+                }
+                currentExpress.entire_address=currentExpress.province_name + currentExpress.city_name+ currentExpress.district_name + currentExpress.detail_address
+                return true;
+            },
+            isphone: function(mobile) {
+                return /^1(3|4|5|7|8)\d{9}$/.test(mobile)
+            }
+        }
+    })
+    </script>
+
+
+
+</body></html>

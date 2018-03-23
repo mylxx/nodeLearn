@@ -1,0 +1,10 @@
+班级说说 1，注册业务；
+		2，登录业务
+		3，ejs <%include header.ejs%> 共享头部
+		4, 头像的上传和 剪裁
+		5， 发帖。
+		6， MongoDB 索引，
+		    建立唯一索引 db.teacher.createIndex({"name":1})
+		    db下  init函数 初始化数据库 建立索引；
+		    聚合 外键 
+		    mongoodb关系数据库和非关系数据库之间的产品，是非关系数据库当中功能最丰富，最像关系数据库的

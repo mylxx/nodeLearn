@@ -1,0 +1,246 @@
+<!DOCTYPE html>
+<!-- saved from url=(0074)http://localhost:8008/wx/home.html?userProductId=514&randomNumber=02440002 -->
+<html lang="en" data-dpr="2" style="font-size: 46.875px;"><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    <title>商品详情</title>
+    
+    <link rel="stylesheet" href="./商品详情_files/swiper.css">
+    <link rel="stylesheet" href="./商品详情_files/index.css">
+    <link rel="stylesheet" href="./商品详情_files/common.css">
+    <script type="text/javascript" src="./商品详情_files/zepto_adj.min.js"></script>
+    <script src="./商品详情_files/vue.js"></script>
+    <script src="./商品详情_files/swiper.min.js"></script>
+    <script src="./商品详情_files/flexible.js"></script><meta name="viewport" content="initial-scale=0.5, maximum-scale=0.5, minimum-scale=0.5, user-scalable=no">
+    <style>
+
+    </style>
+</head>
+
+<body style="font-size: 24px;">
+    <div class="mark" style="display: none;">
+        <div class="loader">
+            <div class="loader-inner line-spin-fade-loader">
+                <div></div>
+                <div></div>
+                <div></div>
+                <div></div>
+                <div></div>
+                <div></div>
+                <div></div>
+                <div></div>
+            </div>
+        </div>
+    </div>
+    <div id="home_box"><div class="swiper-container swiper-container-horizontal"><div class="swiper-wrapper" style="transform: translate3d(-1500px, 0px, 0px); transition-duration: 300ms;"><div class="swiper-slide swiper-slide-duplicate swiper-slide-duplicate-active" data-swiper-slide-index="1" style="width: 750px;"><img src="./商品详情_files/c19de7d53201c7b855c100b939bbdccc_640x640.jpg" alt=""></div><div class="swiper-slide swiper-slide-prev swiper-slide-duplicate-next" data-swiper-slide-index="0" style="width: 750px;"><img src="./商品详情_files/221bcf8dfc6802aea94b16095debf3b5_800x800.jpg" alt=""></div><div class="swiper-slide swiper-slide-active" data-swiper-slide-index="1" style="width: 750px;"><img src="./商品详情_files/c19de7d53201c7b855c100b939bbdccc_640x640.jpg" alt=""></div><div class="swiper-slide swiper-slide-duplicate swiper-slide-next swiper-slide-duplicate-prev" data-swiper-slide-index="0" style="width: 750px;"><img src="./商品详情_files/221bcf8dfc6802aea94b16095debf3b5_800x800.jpg" alt=""></div></div> <div class="swiper-pagination swiper-pagination-clickable swiper-pagination-bullets"><span class="swiper-pagination-bullet"></span><span class="swiper-pagination-bullet swiper-pagination-bullet-active"></span></div></div> <div class="home_main"><div class="home_subtitle"><img alt="" src="./商品详情_files/201611211117318324345_60x42.png"> <span>荷兰品牌</span></div> <div class="home_title">[香港直邮]可莱丝NMF针剂水库面膜（防伪）</div> <div class="home_price">¥0.02</div> <div class="home_trade">
+                运费:<span>包邮</span>&nbsp;&nbsp; 库存:
+                <span>1485</span></div> <div class="home_recommend">【韩国.补水之王】NMF针剂补水面膜| 25ml 10片  仅售79元
+可莱丝有多火不用多说了吧，持续多年成为韩国畅销面膜之一，在全球累计销售超过1.5亿张，简直是平价面膜中的战斗机啦，用一次就会爱上它！精华液饱满充沛，面膜纸非常服帖，我个人都是一次好几盒的屯着呢。</div> <div class="home_proInfo">
+                原产地<span class="area">荷兰</span></div> <div class="home_proInfo_style"><div class="left">
+                    款式
+                </div> <div class="right"><span>可莱丝NMF针剂水库面膜（防伪）</span></div></div> <div class="home_proInfo_size"><div class="left">规格</div> <div class="right"><span class="size">25ml</span></div></div> <div class="empty"></div></div> <div class="home_footer"><div class="left"><img src="./商品详情_files/edit.png" alt=""> <span>我的订单</span></div> <div class="right sell">立刻购买</div></div> <div id="detailWrap"><div id="detail"><div class="detail_top"><div class="detail_top_left"><img src="./商品详情_files/221bcf8dfc6802aea94b16095debf3b5_800x800.jpg" alt=""></div> <div class="detail_top_right"><p class="detail_title">[香港直邮]可莱丝NMF针剂水库面膜（防伪）</p> <div class="detail_price">¥0.02</div> <p class="detail_kucun"><span>库存</span> <span>1485</span></p></div></div> <div class="detail_empty"></div> <div class="detail_style"><p style="font-size: 0.7rem;">款式</p> <ul><li class="detail_check">可莱丝NMF针剂水库面膜（防伪）</li></ul></div> <div class="detail_empty"></div> <div class="detail_size"><p style="font-size: 0.7rem;">规格尺寸</p> <ul><li class="detail_check">25ml</li></ul></div> <div class="detail_empty"></div> <div class="detail_buy"><div class="detail_buy_left">购买数量</div> <!----> <div class="detail_buy_right"><div class="subtract">-</div> <div class="quantity">1</div> <div class="add">+</div></div></div> <div class="detail_empty" style="margin-bottom: 2.13333rem;"></div> <div id="detail_footer">立即购买</div></div></div></div>
+    <script type="text/javascript" src="./商品详情_files/ktop.min.js"></script>
+    <script>
+    $('#home_box').hide()
+    var ktop = lib.ktop
+    var Ktip = lib.Ktip
+    var kStorage = lib.kStorage
+    var utils = lib.utils
+    var params = function() {
+        var params = location.search.slice(1);
+        params = params.split('&');
+        var result = {};
+        var val;
+        for (var i = 0, len = params.length; i < len; i++) {
+            if (params[i]) {
+                val = params[i].split('=');
+                result[val[0]] = val[1] || '';
+            }
+        }
+        return result;
+    }();
+    var APPID = 'wxce695b6701305496'
+    var ua = window.navigator.userAgent;
+    var isMicroMessage = ua.match(/MicroMessenger/i) != null;
+    Vue.filter('removeWebp', function(imgUrl) {
+        return utils.removewebp(imgUrl)
+    })
+    var home_box = new Vue({
+        el: '#home_box',
+        data: {
+            res: {},
+            productStyleInfos: [],
+            styleInfo: {},
+            skuInfo: {},
+            price: '',
+            flag: 0,
+            xiangou: 0,
+            quantity: 1,
+            preview:0
+        },
+        filters: {
+
+        },
+        mounted: function() {
+            this.$nextTick(function() {
+                if (params.preview) {
+                    this.preview = params.preview
+                }
+                this.getProduct()
+            })
+        },
+        methods: {
+            getProduct: function() {
+                $('.mark').show()
+                ktop.request({
+                    api: 'kml.c.product',
+                    apiVersion: '1.0.0',
+                    data: params,
+                    success: function(res) {
+                        $('.mark').hide()
+                        $('#home_box').show()
+                        home_box.res = res
+                        home_box.productStyleInfos = res.productStyleInfos
+                        home_box.setup()
+                        setTimeout(function() {
+                            new Swiper('.swiper-container', {
+                                pagination: '.swiper-pagination',
+                                paginationClickable: true,
+                                loop: true,
+                                autoplay: 5000,
+                                // speed: 300,
+                            });
+                        })
+                    }
+                })
+            },
+            setup: function() {
+                var style = null;
+                var sku = null;
+                for (var i = 0; i < this.productStyleInfos.length; i++) {
+                    var mStyle = this.productStyleInfos[i];
+                    this.$set(mStyle, 'checked', false)
+                    this.$set(mStyle, 'disabled', true)
+                    for (var j = 0; j < mStyle.cproductSkuInfos.length; j++) {
+                        var mSku = mStyle.cproductSkuInfos[j]
+                        this.$set(mSku, 'checked', false)
+                        if (mSku.available_inventory > 0 && mSku.onsale == 1 && this.res.onsale == 1) {
+                            mStyle.disabled = false
+                            this.$set(mSku, 'disabled', false)
+                            if (!style && !sku) {
+                                mStyle.checked = true;
+                                mSku.checked = true;
+                                style = mStyle;
+                                sku = mSku;
+                            }
+                        } else {
+                            this.$set(mSku, 'disabled', true)
+                        }
+                    }
+                }
+                this.styleInfo = style;
+                this.skuInfo = sku;
+            },
+            selectStyle: function(item) {
+                if (this.styleInfo == item || item.disabled) {
+                    return;
+                }
+                this.styleInfo.checked = false;
+                this.skuInfo.checked = false;
+                item.checked = true;
+                this.styleInfo = item;
+                for (var i = 0; i < item.cproductSkuInfos.length; i++) {
+                    var mSku = item.cproductSkuInfos[i]
+                    if (mSku.available_inventory > 0 && mSku.onsale == 1 && this.res.onsale == 1) {
+                        mSku.checked = true;
+                        this.skuInfo = mSku;
+                        this.checkMax()
+                        break;
+                    }
+                }
+            },
+            selectSize: function(item) {
+                if (item.disabled) {
+                    return;
+                }
+                this.skuInfo.checked = false;
+                item.checked = true;
+                this.skuInfo = item
+                this.checkMax()
+            },
+            changeQuantity: function(type) {
+                if (type == 1) {
+                    if (this.quantity < this.skuInfo.available_inventory && (this.quantity < this.res.limit_amount || this.res.limit_amount == 0)) {
+                        this.quantity++
+                    }
+                } else {
+                    if (this.quantity > 1) {
+                        this.quantity--
+                    }
+                }
+            },
+            checkMax: function() {
+                if (this.quantity >= this.skuInfo.available_inventory) {
+                    this.quantity = this.skuInfo.available_inventory
+                }
+            },
+            showDetail: function() {
+                $('#detailWrap').show()
+            },
+            buy: function() {
+                // if (!isMicroMessage) {
+                //     Ktip.show('微信打开',1)
+                //     return
+                // }
+                var orderInfo = {
+                    title: this.res.title,
+                    styleImage: this.styleInfo.styleImage,
+                    productId: this.res.id,
+                    userProductId: this.res.userProductId,
+                    shopId: this.res.shopId,
+                    skuInfo: this.skuInfo,
+                    quantity: this.quantity,
+                    need_identity: this.res.need_identity
+                }
+                kStorage.remove('addressInfo')
+                kStorage.set('orderInfo', JSON.stringify(orderInfo))
+                var openid = kStorage.get('wwwwopenidkml')
+                if (openid && openid.length > 0) {
+                    location.href = 'order.html'
+                } else {
+                    var REDIRECT_URI = encodeURIComponent("http://m.kmeila.com/wx/order.html");
+                    var href = "https://open.weixin.qq.com/connect/oauth2/authorize?appid=" + APPID + "&redirect_uri=" + REDIRECT_URI + "&response_type=code&scope=snsapi_base&state=STATE#wechat_redirect"
+                    location.href = href
+                }
+            },
+            myorder: function() {
+                // if (!isMicroMessage) {
+                //     Ktip.show('微信打开')
+                //     return
+                // }
+                var openid = kStorage.get('wwwwopenidkml')
+                if (openid && openid.length > 0) {
+                    location.href = 'myOrder.html?shopId=' + this.res.shopId
+                } else {
+                    var REDIRECT_URI = encodeURIComponent("http://m.kmeila.com/wx/myOrder.html?shopId=" + this.res.shopId);
+                    var href = "https://open.weixin.qq.com/connect/oauth2/authorize?appid=" + APPID + "&redirect_uri=" + REDIRECT_URI + "&response_type=code&scope=snsapi_base&state=STATE#wechat_redirect"
+                    location.href = href
+                }
+            }
+        }
+    })
+
+    $(function() {
+        $('#detail').click(function(e) {
+            e.stopPropagation();
+
+        })
+        $("#detailWrap").click(function(e) {
+            $("#detailWrap").hide();
+            e.stopPropagation();
+
+        });
+    })
+    </script>
+
+
+
+</body></html>

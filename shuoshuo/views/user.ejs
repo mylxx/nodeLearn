@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <!-- 上述3个meta标签*必须*放在最前面，任何其他内容都*必须*跟随其后！ -->
+    <meta name="description" content="">
+    <meta name="author" content="">
+    <link rel="icon" href="/favicon.ico">
+    <title>个人主页</title>
+    <link href="/css/bootstrap.min.css" rel="stylesheet">
+</head>
+
+<body>
+    <%include header.ejs%>
+        <!-- Main jumbotron for a primary marketing message or call to action -->
+        <div class="jumbotron">
+        </div>
+        <div class="container col-lg-6">
+            <h3><%=user%>的主页</h3>
+            <img src="/avatar/<%=avatar%>" alt="">
+            <%for(var i = 0;i<cirenshuoshuo.length;i++){%>
+                <div style="border-bottom:1px solid #ccc;">
+                    <p>
+                        <%=cirenshuoshuo[i].content%>
+                    </p>
+                    <p>
+                        <%=cirenshuoshuo[i].datetime%>
+                    </p>
+                </div>
+            <%}%>
+        </div>
+        <script src="/js/jquery.min.js"></script>
+        <script src="/js/bootstrap.min.js"></script>
+        <script>
+        </script>
+</body>
+
+</html>

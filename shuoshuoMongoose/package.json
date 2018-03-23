@@ -1,0 +1,15 @@
+{
+  "name": "shuoshuomongoose",
+  "version": "1.0.0",
+  "description": "班级说说（一）1，注册业务； \t\t\t2，登录业务 \t\t\t3，ejs <%include header.ejs%> 共享头部 \t\t\t4, 头像的上传和 剪裁 \t\t\t5， 发帖。 \t\t\t6， MongoDB 索引， \t\t\t    建立唯一索引 db.teacher.createIndex({\"name\":1}) \t\t\t    db下  init函数 初始化数据库 建立索引； \t\t\t    聚合 外键  \t\t\t    mongoodb关系数据库和非关系数据库之间的产品，是非关系数据库当中功能最丰富，最像关系数据库的",
+  "main": "app.js",
+  "dependencies": {
+    "mongoose": "^4.11.13"
+  },
+  "devDependencies": {},
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "",
+  "license": "ISC"
+}

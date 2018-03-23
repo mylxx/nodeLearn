@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+    var flage = false;
+    var b = []
+
+    for (var i = 0; i < 99999998; i++) {
+        b.push(i)
+
+
+    }
+    console.log(b[b.length-1])
+    for (var i = 0; i < b.length; i++) {
+        if (b[i] > 99999996) {
+            flage = true;
+        }
+    }
+    console.log(flage)
+    </script>
+</body>
+
+</html>

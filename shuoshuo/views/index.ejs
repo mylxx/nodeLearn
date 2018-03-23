@@ -1,0 +1,220 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <!-- 上述3个meta标签*必须*放在最前面，任何其他内容都*必须*跟随其后！ -->
+    <meta name="description" content="">
+    <meta name="author" content="">
+    <link rel="icon" href="/favicon.ico">
+    <title>班级说说</title>
+    <link href="/css/bootstrap.min.css" rel="stylesheet">
+</head>
+
+<body>
+    <%include header.ejs%>
+        <!-- Main jumbotron for a primary marketing message or call to action -->
+        <div class="jumbotron">
+            <%if(!login){%>
+                <div class="container">
+                    <div class="row">
+                        <div class="col-lg-6">
+                            <h1>欢迎</h1>
+                            <p>班级说说的介绍 欢迎注册! </p>
+                            <p>
+                                <a class="btn btn-primary btn-lg" href="/regist" role="button">注册</a>
+                            </p>
+                        </div>
+                        <div class="col-lg-6">
+                            <p>已有账号登录</p>
+                            <div class="form-group">
+                                <label for="exampleInputEmail1">用户名</label>
+                                <input type="text" class="form-control" id="username" placeholder="用户名">
+                            </div>
+                            <div class="form-group">
+                                <label for="exampleInputPassword1">密码</label>
+                                <input type="password" class="form-control" id="password" placeholder="Password">
+                            </div>
+                            <div class="form-group">
+                                <input class="form-control" id="denglu" type="submit" value="登录">
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <%}else{%>
+                    <div class="container">
+                        <div class="row" style="margin-top:20px;">
+                            <div class="col-lg-1">
+                                <a href="/setavatar">
+                               <img src="/avatar/<%=avatar%>" alt="">
+                            </a>
+                            </div>
+                            <div class="col-lg-6 col-lg-offset-2">
+                                <p>
+                                    <%=username%>
+                                </p>
+                                <textarea name="content" id="content" cols="70" rows="4"></textarea>
+                                <a id="fabiao" class="btn btn-primary btn-lg" href="" role="button">发表</a>
+                            </div>
+                        </div>
+                        <p><a class="btn btn-primary btn-lg" href="#" role="button">Learn more &raquo;</a></p>
+                    </div>
+                    <%}%>
+        </div>
+        <div class="container">
+            <nav aria-label="Page navigation">
+                <ul class="pagination">
+                    <!-- <li class="perPage">
+                        <a href="#" aria-label="Previous">
+                            <span aria-hidden="true">&laquo;</span>
+                        </a>
+                    </li>
+                    <li data-page="">
+                        <a href="#">
+                            0
+                            </a>
+                    </li>
+                    <li class="nexPage">
+                        <a href="#" aria-label="Next">
+                           <span aria-hidden="true">&raquo;</span>
+                        </a>
+                    </li> -->
+                </ul>
+            </nav>
+            <!-- 后台查询发表的说说 后台模板来做 -->
+            <!--  -->
+            <!-- 用前端模板来做 -->
+            <div class="row" style="height:640px" id="quanbushuosho">
+            </div>
+            <hr>
+            <footer>
+                <p>&copy; 2016 Company, Inc.</p>
+                <%=login%>
+            </footer>
+        </div>
+        <script src="/js/jquery.min.js"></script>
+        <script src="/js/bootstrap.min.js"></script>
+        <script src="/js/underscore.noconflict.js"></script>
+        <script type="text/template" id="moban">
+            <div class="col-md-4" style="height:160px;">
+                <h5>
+            <img style="width:40px;" src="/avatar/<@=avatar@>" alt="">
+            <@=username@>说：
+            </h5>
+                <p>
+                    <@=content@>
+                </p>
+                <p>
+                    <@=datetime@>
+                </p>
+                <p><a style="padding:0 12px" class="btn btn-default" href="" role="button">查看</a></p>
+            </div>
+        </script>
+        <script>
+        $('#denglu').click(function() {
+            var data = {
+                'username': $('#username').val(),
+                'password': $('#password').val()
+            }
+            $.post('/doLogin', data, function(result) {
+                if (result.code == 0) {
+                    alert(result.msg)
+                    location.href = "/"
+                } else {
+                    alert(result.msg)
+                }
+
+            })
+        })
+        $('#fabiao').click(function() {
+            var data = {
+                'content': $('#content').val()
+            }
+            $.post('/post', data, function(result) {
+                if (result.code == 0) {
+                    alert(result.msg)
+                    location.href = "/"
+                } else {
+                    alert(result.msg)
+                }
+
+            })
+        })
+        // 得到模板
+        var mobanstring = $('#moban').html()
+        var compiled = _.template(mobanstring);
+        getPage(0)
+        function getPage(page) {
+            // 清空原有的
+            $("#quanbushuosho").html("")
+
+            // ajax 读取文章
+            $.ajax({
+                url: '/getallshuoshuo?page=' + page,
+                type: 'get',
+                // async: false,
+                success: function(res) {
+                    if (res.code == 0) {
+                        iterator(0)
+                        function iterator(i) {
+                            if (i == res.data.length) {
+                                return;
+                            }
+                            $.ajax({
+                                type: "get",
+                                url: "/getuserinfo?username=" + res.data[i].username,
+                                success: function(res2) {
+                                    // 追加 发表说说人的头像 字典修饰
+                                    res.data[i].avatar = res2.data.avatar;
+                                    var htmlString = compiled(res.data[i])
+                                    $('#quanbushuosho').append(htmlString)
+                                    iterator(i + 1)
+                                }
+                            });
+                        }
+                        // for(){
+                        //     // ajax 请求嵌套 根据username 获取 user集合里的 user信息 内层函数必须同步 ajax 同步
+                        //     $.ajax({
+                        //         type: "get",
+                        //         url: "/getuserinfo?username=" + res.data[i].username,
+                        //         // cache: false,
+                        //         async: false,
+                        //         // dataType: ($.browser.msie) ? "text" : "xml",
+                        //         success: function(res2) {
+                        //             // 追加 发表说说人的头像 字典修饰
+                        //             res.data[i].avatar = res2.data.avatar;
+                        //             var htmlString = compiled(res.data[i])
+                        //             $('#quanbushuosho').append(htmlString)
+                        //         }
+                        //     });
+                        // }
+
+                    }
+                }
+            })
+        }
+
+        // 分页
+        $.get('/shuoshuoamount', function(res) {
+
+            // 总条数pa
+            var amount = parseInt(res)
+            // 总页数
+            var pageAmount = Math.ceil(amount / 10)
+            for (var i = 0; i < pageAmount; i++) {
+                $('.pagination').append('<li><a href="javascript:;">' + i + '</a></li>')
+            }
+            $('.pagination li:eq(0)').addClass('active')
+            $('.pagination li').click(function() {
+                var page = $(this).index()
+                getPage(page)
+                $(this).addClass('active').siblings().removeClass('active')
+
+            })
+        })
+        </script>
+</body>
+
+</html>

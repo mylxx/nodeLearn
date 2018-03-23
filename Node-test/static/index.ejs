@@ -1,0 +1,21 @@
+<!DOCTYPE html >
+	<html lang="en">
+<head>
+	<meta charset="UTF-8"/>
+	<title>Document</title>
+</head>
+<body>
+<h1> 买一个iPhone<%= a %>s</h1>
+<ul>
+	<% for(var i = 0;i < news.length;i++){ 
+			if(news[i]>2){
+	%>
+				<li><%= news[i]%></li>
+	<%	
+			}
+		 } 
+	 %>
+</ul>
+	
+</body>
+</html>

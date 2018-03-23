@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>画板</title>
+	<style>
+		canvas{
+			border:1px solid #000;
+		}
+	</style>
+</head>
+<body>
+<canvas width='1000' height='1000' id="canvas"></canvas>
+    <script src="/socket.io/socket.io.js"></script>
+<script>
+
+var canvas = document.getElementById('canvas');
+var ctx = canvas.getContext('2d');
+var color = ['#f00','#0f0','#000','#993232']
+var myColor = color[parseInt(Math.random()*color.length)]
+canvas.onmousedown = function(){
+	canvas.addEventListener('mousemove',handler,true)
+
+}
+canvas.onmouseup = function(){
+	canvas.removeEventListener('mousemove',handler,true)
+
+}
+function handler(e){
+	ctx.beginPath();
+	ctx.arc(e.pageX,e.pageY,20,0,Math.PI*2,true);
+	ctx.fillStyle = myColor;
+	ctx.fill()
+	// 触发
+	socket.emit('hua',{'x':e.pageX,'y':e.pageY,'color':myColor})
+}
+var socket = io();
+socket.on('huida',function(msg){
+	ctx.beginPath();
+	ctx.arc(msg.x,msg.y,20,0,Math.PI*2,true);
+	ctx.fillStyle = msg.color;
+	ctx.fill()
+})
+
+	
+</script>
+
+	
+</body>
+</html>

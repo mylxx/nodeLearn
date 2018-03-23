@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Document</title>
+    <script src="./jquery.min.js"></script>
+    <script src="./underscore.min.js"></script>
+</head>
+
+<body>
+    <div class="userArr">
+    </div>
+    <script type="text/template" id="moban">
+        <h1><%=id%></h1>
+        <h4><%=name%></h4>
+    </script>
+    <script>
+    var mobanstring = $('#moban').html()
+    var compiled = _.template(mobanstring);
+
+    $.get('/user', function(res, status) {
+        for (var i = 0; i < res.length; i++) {
+            var compiledstring = compiled(res[i])
+            $('.userArr').append($(compiledstring))
+        }
+    })
+    </script>
+</body>
+
+</html>

@@ -1,0 +1,11 @@
+01.text 原生js 搭建服务器 server创建好之后 创建一个io 对象；
+    var io = require('socket.io')(server);
+
+    http://localhost:3000/socket.io/socket.io.js 为一个 js文件；
+    接下来 写服务器的io监听；
+
+    制作index页面 必须引用 /socket.io/socket.io.js  取得 socket对象
+    服务器 和 客户端 都一个socket对象；
+02  chatroom 制作一个聊天室； express express-session ejs
+
+03   huaban.html websocket 实现一个简单画板  

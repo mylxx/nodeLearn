@@ -1,0 +1,130 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>留言</title>
+    <link href="/css/bootstrap.min.css" rel="stylesheet">
+    <style>
+    img {
+        width: 100px;
+        height: 100px;
+    }
+    </style>
+</head>
+
+<body>
+    <div class="container">
+        <div class="row col-lg-6">
+            <h1>留言本</h1>
+            <form enctype="multipart/form-data">
+                <div class="form-group">
+                    <label for="exampleInputEmail1">姓名</label>
+                    <input type="email" class="form-control" id="xingming" placeholder="name" name="xingming">
+                </div>
+                <div class="form-group">
+                    <label for="exampleInputPassword1">留言</label>
+                    <textarea class="form-control" id="liuyan" placeholder="liuyan" name="liuyan"></textarea>
+                </div>
+                <button type="button" class="btn btn-success submit">Submit</button>
+            </form>
+            <div id="msg">
+            </div>
+            <nav aria-label="Page navigation">
+                <ul class="pagination">
+                    <li class="perPage">
+                        <a href="#" aria-label="Previous">
+						    <span aria-hidden="true">&laquo;</span>
+						</a>
+                    </li>
+                    <%for(var i = 1;i<=pageAmount;i++){%>
+                        <li data-page="<%=i%>">
+                            <a href="#">
+                                <%=i%>
+                            </a>
+                        </li>
+                        <%}%>
+                            <li class="nexPage">
+                                <a href="#" aria-label="Next">
+				           <span aria-hidden="true">&raquo;</span>
+				        </a>
+                            </li>
+                </ul>
+            </nav>
+        </div>
+    </div>
+    <script src="/js/jquery.min.js"></script>
+    <script src="/js/bootstrap.min.js"></script>
+    <script src="/js/underscore.noconflict.js"></script>
+    <script type="text/template" id="moban">
+        <ul class="list-unstyled">
+            <li>
+                【姓名】
+                <@=name@>
+            </li>
+            <li>
+                【留言】
+                <@=msg@>
+            </li>
+            <li>
+                【时间】
+                <@=shijian@>
+            </li>
+        </ul>
+    </script>
+    <script>
+    var nowPage = 1;
+    
+    $(".submit").click(function() {
+        $.post('/doPost', {
+            'name': $("#xingming").val(),
+            'msg': $("#liuyan").val()
+        }, function(result) {
+            var mobanstring = $('#moban').html()
+            var compiled = _.template(mobanstring);
+            var str = compiled({ 'name': $("#xingming").val(), 'msg': $("#liuyan").val(), 'shijian': new Date() })
+            $(str).insertBefore($("#msg"))
+        })
+    })
+    // 分页 局部刷新
+    getData(1)
+    $('li[data-page]:eq(0)').addClass('active')
+    $('li[data-page]').click(function() {
+        nowPage = parseInt($(this).attr('data-page'))
+        $(this).addClass('active').siblings().removeClass('active')
+
+        getData(nowPage)
+    })
+
+    function getData(page) {
+        // var page = page -1;
+        $.get('/readMsg?page=' + (page - 1), function(res) {
+            var mobanstring = $('#moban').html()
+            var compiled = _.template(mobanstring);
+            $("#msg").html('')
+            for (var i = 0; i < res.result.length; i++) {
+                var str = compiled(res.result[i])
+                $("#msg").append($(str))
+            }
+        })
+    }
+    // 左右移动
+    $('.nexPage').click(function() {
+        nowPage++
+        var num = nowPage-1
+      $('li[data-page]:eq('+num+')').addClass('active').siblings().removeClass('active')
+        getData(nowPage)
+
+    })
+    $('.perPage').click(function() {
+        nowPage--
+        var num = nowPage-1
+       $('li[data-page]:eq('+num+')').addClass('active').siblings().removeClass('active')
+        getData(nowPage)
+    })
+    </script>
+</body>
+
+</html>

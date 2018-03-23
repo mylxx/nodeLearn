@@ -1,0 +1,140 @@
+* {
+    padding: 0;
+    margin: 0;
+}
+a{
+    text-decoration: none;
+
+}
+a:active{
+     -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
+}
+
+body {
+    background: #eee;
+    overflow:hidden;
+}
+
+.user_name,
+.user_mobile,
+.user_area_detail{
+    padding: 0.6rem 0.426667rem;
+    border-bottom: 1px solid #ccc;
+    overflow: hidden;
+    background: #fff;
+}
+.user_area {
+    border-bottom: 1px solid #ccc;
+    overflow: hidden;
+    background: #fff;
+    height:2.07424rem;
+    line-height:2.07424rem;
+
+}
+
+.user_name_left,
+.user_mobile_left,
+.user_area_detail_left,
+.user_area_left {
+    font-size: 0.64rem;
+    color: #666666;
+    width: 25%;
+    float: left;
+}
+.user_name_right
+ {
+    font-size: 0.64rem;
+    width: 50%;
+    float: left;
+    color:#353535;
+}
+.user_mobile_middle
+ {
+    font-size: 0.64rem;
+    width: 50%;
+    float: left;
+    color:#353535;
+
+}
+.user_area_middle {
+    width: 75%;
+    float:left;
+}
+.user_area_middle select{
+    outline: none;
+    border:1px solid #ccc;
+    text-align: center;
+}
+.user_area_middle select option{
+    text-align: center;
+}
+
+
+.user_name_right input,
+.user_mobile_middle input,
+.user_area_detail_right input {
+    font-size: 0.64rem;
+    outline: none;
+    width:100%;
+    border:none;
+}
+
+.user_mobile_right {
+    width: 15%;
+    float: right;
+    background: url(../img/tel.png) no-repeat;
+    background-size: contain;
+    background-position: right center;
+    height: 0.853333rem;
+}
+
+.user_area_detail_right {
+    font-size: 0.64rem;
+    color: #353535;
+    width: 60%;
+    float: left;
+}
+
+.goods_addr_addIdentity {
+    padding: 0.6rem 0.426667rem;
+    background: #fff;
+    margin-top: 0.533333rem;
+}
+
+.goods_addr_addIdentity .addInfo {
+    font-size: 0.64rem;
+    color: #666666;
+    padding-left: 0.8rem;
+    background: url(../img/add1.png) no-repeat;
+    background-size: 0.64rem;
+    background-position:left center;
+    margin-bottom: 0.426667rem;
+}
+
+.goods_addr_addIdentity p {
+    font-size: 0.554667rem;
+    color: #B3B3B3;
+}
+.goods_addr_footer{
+    position: fixed;
+    left: 0;
+    bottom: 0;
+    width: 100%;
+    height: 2.090667rem;
+    line-height: 2.090667rem;
+    text-align: center;
+    font-size: 0.65rem;
+    z-index: 3333;
+    overflow:hidden;
+    background:#F3244B;
+    color:#fff;
+}
+
+
+
+
+
+
+
+
+
